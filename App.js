@@ -2,12 +2,16 @@ import React from 'react';
 import {
   View,
   Text,
-  StyleSheet
+  StyleSheet,
+  SafeAreaView
 } from 'react-native';
 
 const App: () => React$Node = () => {
   return (
     <>
+      <SafeAreaView>
+        <Text>Hello, World</Text>
+      </SafeAreaView>
     </>
   );
 };
