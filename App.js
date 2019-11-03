@@ -7,7 +7,10 @@ const rootNavigator = createStackNavigator(
     Search: SearchScreen
   },
   {
-    intialRouteName: 'Search'
+    initialRouteName: 'Search',
+    defaultNavigationOptions: {
+      title: 'Restaurant Search'
+    }
   }
 );
 
