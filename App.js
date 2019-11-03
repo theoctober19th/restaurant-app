@@ -1,19 +1,14 @@
-import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView
-} from 'react-native';
+import {createAppContainer} from 'react-navigation'
+import {createStackNavigator,} from 'react-navigation-stack'
+import SearchScreen from '@screens/SearchScreen'
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <SafeAreaView>
-        <Text>Hello, World</Text>
-      </SafeAreaView>
-    </>
-  );
-};
+const rootNavigator = createStackNavigator(
+  {
+    Search: SearchScreen
+  },
+  {
+    intialRouteName: 'Search'
+  }
+);
 
-export default App;
+export default createAppContainer(rootNavigator);
