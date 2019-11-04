@@ -11,26 +11,31 @@ import SliderItem from '@components/SliderItem';
 import DividerLine from '@components/DividerLine';
 
 const RestaurantCategory = ({data, title}) => {
-  return(
-      <View style={styles.global_container}>
-        <Text style={styles.title}>{title}</Text>
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data = {data}
-          keyExtractor={(item) => item.id}
-          renderItem = {({item}) => (
-            <SliderItem
-              image={item.image_url}
-              title={item.name}
-              subtitle={`${item.rating} stars from ${item.review_count} reviews`}
-            />
-          )}
-        />
-        <DividerLine color='#eaeaea' width={1} />
+  if(data.length != 0){
+    return(
+        <View style={styles.global_container}>
+          <Text style={styles.title}>{title}</Text>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data = {data}
+            keyExtractor={(item) => item.id}
+            renderItem = {({item}) => (
+              <SliderItem
+                id = {item.id}
+                image={item.image_url}
+                title={item.name}
+                subtitle={`${item.rating} stars from ${item.review_count} reviews`}
+              />
+            )}
+          />
+          <DividerLine color='#eaeaea' width={1} />
 
-      </View>
-  );
+        </View>
+    );
+  }else{
+    return null;
+  }
 };
 
 const styles = StyleSheet.create({

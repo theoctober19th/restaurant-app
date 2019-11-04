@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+
+import {withNavigation} from 'react-navigation';
 import {
   StyleSheet,
   View,
@@ -7,9 +9,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-const SliderItem = ({title, image, subtitle}) => {
+const SliderItem = ({id, title, image, subtitle, navigation}) => {
   return(
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Detail', {id: id})}>
         <View style={styles.global_container}>
           <Image
             source={{uri: image}}
@@ -42,4 +44,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default SliderItem;
+export default withNavigation(SliderItem);
