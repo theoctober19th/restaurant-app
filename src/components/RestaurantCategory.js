@@ -18,12 +18,12 @@ const RestaurantCategory = ({data, title}) => {
           horizontal
           showsHorizontalScrollIndicator={false}
           data = {data}
-          keyExtractor={(item) => item.title}
+          keyExtractor={(item) => item.id}
           renderItem = {({item}) => (
             <SliderItem
-              image={item.image}
-              title={item.title}
-              subtitle={item.subtitle}
+              image={item.image_url}
+              title={item.name}
+              subtitle={`${item.rating} stars from ${item.review_count} reviews`}
             />
           )}
         />
